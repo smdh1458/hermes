@@ -1,26 +1,21 @@
 package com.hermes.hermes.controller;
-import com.hermes.hermes.dto.Product;
-import com.hermes.hermes.service.UserServiceImpl;
-import lombok.Getter;
 import org.springframework.ui.Model;
 import com.hermes.hermes.dto.User;
 import com.hermes.hermes.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import java.util.List;
-import java.util.Map;
+import org.springframework.web.bind.annotation.*;
+
 @Controller
 public class IndexController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/index")
-    public String index(String imageName,Model model) {
-        String getmainImage = userService.getIndexMainImage(imageName);
-        model.addAttribute("mainImage", getmainImage);
+
+    @GetMapping("/index/{productId}")
+    public String getImage(@PathVariable int productId, Model model) {
+        String Img = userService.getImage(productId);
+        model.addAttribute("product", Img);
         return "index";
     }
 
@@ -29,7 +24,7 @@ public class IndexController {
     public String index() {
         return "index";
     }
-    */
+     */
 
     @GetMapping("/Signup")
     public String signup() {
@@ -43,6 +38,7 @@ public class IndexController {
     }
     @GetMapping("/Category_Page")
     public String CategoryPage() {
-        return "Category_Page";
+        return "category_Page";
     }
+
 }

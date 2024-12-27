@@ -19,9 +19,9 @@
         WHERE NAME = #{name}
     </select>
 
-    <select id="getIndexMainImage">
+    <select id="getImage">
         SELECT PRODUCT_IMAGE
-        FROM PRODUCT2
-        WHERE PRODUCT_IMAGE = #{imageName}
+        FROM PRODUCT
+        WHERE PRODUCT_REG_NUM = #{productId}
     </select>
 </mapper>

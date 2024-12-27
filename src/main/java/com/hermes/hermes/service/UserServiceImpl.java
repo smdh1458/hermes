@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.hermes.hermes.mapper.UserMapper;
 import org.springframework.ui.Model;
 
+import java.awt.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +34,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String getIndexMainImage(String imageName) {
-        return userMapper.getIndexMainImage(imageName);
+    public String getImage(int productId) {
+        return userMapper.getImage(productId);
     }
 }
