@@ -35,6 +35,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String getImage(int productId) {
-        return userMapper.getImage(productId);
+        return "";
     }
+
 }

@@ -1,4 +1,6 @@
 package com.hermes.hermes.controller;
+import com.hermes.hermes.dto.Product;
+import com.hermes.hermes.service.ProductService;
 import org.springframework.ui.Model;
 import com.hermes.hermes.dto.User;
 import com.hermes.hermes.service.UserService;
@@ -10,21 +12,16 @@ import org.springframework.web.bind.annotation.*;
 public class IndexController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private ProductService productService;
 
 
-    @GetMapping("/index/{productId}")
-    public String getImage(@PathVariable int productId, Model model) {
-        String Img = userService.getImage(productId);
-        model.addAttribute("product", Img);
+    @GetMapping("/{product_reg_num}")
+    public String index(@PathVariable int product_reg_num, Model model) {
+        Product product = productService.getProduct(product_reg_num);
+        model.addAttribute("product", product);
         return "index";
     }
-
-    /*
-    @GetMapping("index")
-    public String index() {
-        return "index";
-    }
-     */
 
     @GetMapping("/Signup")
     public String signup() {

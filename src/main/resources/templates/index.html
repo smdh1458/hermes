@@ -15,14 +15,12 @@
             border: 1px solid black;
             margin: 20px;
             border-radius: 30px;
-
         }
         .index_ImageList{
             width: 150px;
             height: 220px;
             border: 1px solid black;
             margin: 5px;
-
         }
         .index_List {
             display: flex;
@@ -33,19 +31,18 @@
 <body>
 <th:block th:replace="~{layout/header :: header}"></th:block>
 <div class="index_container">
-    <div class="index_main">
-        <img class="index_mainImage" th:src="${productId}">
-    </div>
-    <div class="index_List">
-        <img class="index_ImageList" src="/images/shose1.jpg">
-        <img class="index_ImageList" src="/images/shose2.jpg">
-        <img class="index_ImageList" src="/images/shose3.jpg">
-        <img class="index_ImageList" src="/images/shose4.jpg">
-        <img class="index_ImageList" src="/images/shose5.jpg">
-    </div>
+        <div class="index_main">
+            <img class="index_mainImage" th:src="@{${product.product_image_path}}" alt="제품 이미지">
+        </div>
+        <div class="index_List">
+            <img class="index_ImageList" src="/images/shose1.jpg">
+            <img class="index_ImageList" src="/images/shose2.jpg">
+            <img class="index_ImageList" src="/images/shose3.jpg">
+            <img class="index_ImageList" src="/images/shose4.jpg">
+            <img class="index_ImageList" src="/images/shose5.jpg">
+        </div>
 </div>
 
 <th:block th:replace="~{layout/footer :: footer}"></th:block>
-
-
 </body>
+</html>
