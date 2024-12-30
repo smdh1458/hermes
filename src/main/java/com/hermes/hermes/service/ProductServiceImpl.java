@@ -27,12 +27,24 @@ public class ProductServiceImpl implements ProductService {
         Product product = productMapper.getProduct(product_reg_num);
         return product;
     }
-
     @Override
     public List<Product> getAllProducts() {
-        // 모든 상품 목록을 조회
+        // 모든 상품 목록 조회
         return productMapper.getAllProducts();
     }
+
+    /*
+    @Override
+    public List<Map<String, Object>> getAllProducts() {
+        List<Product> productList = productMapper.getAllProducts();
+        return productList.stream().map(product -> {
+            Map<String, Object> productMap = new HashMap<>();
+            // product 객체에서 필요한 데이터를 맵에 추가
+            productMap.put("product_image_path", product.getProduct_image_path());
+            // 필요한 경우 추가적인 필드를 넣을 수 있습니다
+            return productMap;
+        }).collect(Collectors.toList());
+    }*/
 
     @Override
     public List<Product> getProductsByCategory(String category) {

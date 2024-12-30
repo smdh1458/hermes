@@ -20,21 +20,22 @@ public class IndexController {
 
     @GetMapping("/{product_reg_num}")
     public String index(@PathVariable int product_reg_num, Model model) {
+        // 1. product_reg_num 제품 번호에 해당하는 제품이름 ~ 이미지 등 가져와서 보여주기 = 1개의 상품만 들어있음
         Product product = productService.getProduct(product_reg_num);
+        System.out.println(product);
         model.addAttribute("product", product);
+
+        // 2. 제품 테이블에 있는 모든 제품 가지고 오기
+        List<Product>  products   =   productService.getAllProducts();
+        System.out.println("-- product table all --");
+        System.out.println(products);
+        model.addAttribute("products", products);
         return "index";
     }
 
     @GetMapping("/Category_Page")
     public String CategoryPage() {
         return "category_Page";
-    }
-
-    @GetMapping("/")
-    public String index(Model model) {
-        List<Product> products = productService.getAllProducts();
-        model.addAttribute("products", products);
-        return "index";
     }
 
 }
