@@ -33,44 +33,19 @@ public class ProductServiceImpl implements ProductService {
         return productMapper.getAllProducts();
     }
 
-    /*
-    @Override
-    public List<Map<String, Object>> getAllProducts() {
-        List<Product> productList = productMapper.getAllProducts();
-        return productList.stream().map(product -> {
-            Map<String, Object> productMap = new HashMap<>();
-            // product 객체에서 필요한 데이터를 맵에 추가
-            productMap.put("product_image_path", product.getProduct_image_path());
-            // 필요한 경우 추가적인 필드를 넣을 수 있습니다
-            return productMap;
-        }).collect(Collectors.toList());
-    }*/
-
+/*
     @Override
     public List<Product> getProductsByCategory(String category) {
         // 카테고리별 상품 목록 조회
         return productMapper.getProductsByCategory(category);
-    }
+    }*/
 
     @Override
-    public void insertProduct(Product product) {
-        // 상품 정보 등록
-        productMapper.insertProduct(product);
+    public List<Product> getCategoryList(String product_category){
+        return productMapper.getCategoryList(product_category);
     }
 
-    @Override
-    public void updateProduct(Product product) {
-        // 상품 정보 수정
-        productMapper.updateProduct(product);
-    }
-
-    @Override
-    public void deleteProduct(int productId) {
-        // 상품 삭제
-        productMapper.deleteProduct(productId);
-    }
-
-
+    /*
     @Override
     public String getProductImagePath(int productId) {
         Product product = productMapper.getProduct(productId);
@@ -79,5 +54,6 @@ public class ProductServiceImpl implements ProductService {
         }
         return null;
     }
+     */
 
 }

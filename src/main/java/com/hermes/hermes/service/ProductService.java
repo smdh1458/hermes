@@ -15,16 +15,7 @@ public interface ProductService {
     List<Product> getAllProducts();
 
     // 카테고리별 상품 조회
-    List<Product> getProductsByCategory(String category);
+    //List<Product> getProductsByCategory(String category);
 
-    // 상품 등록
-    void insertProduct(Product product);
-
-    // 상품 정보 수정
-    void updateProduct(Product product);
-
-    // 상품 삭제
-    void deleteProduct(int productId);
-
-    String getProductImagePath(int productId);
+    List<Product> getCategoryList(String product_category);
 }

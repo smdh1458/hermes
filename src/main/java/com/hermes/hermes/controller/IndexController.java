@@ -33,9 +33,13 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping("/Category_Page")
-    public String CategoryPage() {
-        return "category_Page";
+    @GetMapping("/category_page/{product_category}")
+    public String CategoryPage(@PathVariable String product_category, Model model) {
+        List<Product>  products   =   productService.getAllProducts();
+        System.out.println("-- product table all --");
+        System.out.println(products);
+        model.addAttribute("products", products);
+        return "category_page";
     }
 
 }
