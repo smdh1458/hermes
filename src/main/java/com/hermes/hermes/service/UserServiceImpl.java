@@ -28,14 +28,5 @@ public class UserServiceImpl implements UserService {
             return userMap;
         }).collect(Collectors.toList());
     }
-    @Override
-    public void insertUser(User user){
-        userMapper.insertUser(user);
-    }
-
-    @Override
-    public String getImage(int productId) {
-        return "";
-    }
 
 }

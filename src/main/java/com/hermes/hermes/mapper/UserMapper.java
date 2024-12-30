@@ -11,6 +11,5 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
     List<User> getAllUsers();
-    void insertUser(User user);
 
 }

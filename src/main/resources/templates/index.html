@@ -35,11 +35,10 @@
             <img class="index_mainImage" th:src="@{${product.product_image_path}}" alt="제품 이미지">
         </div>
         <div class="index_List">
-            <img class="index_ImageList" src="/images/shose1.jpg">
-            <img class="index_ImageList" src="/images/shose2.jpg">
-            <img class="index_ImageList" src="/images/shose3.jpg">
-            <img class="index_ImageList" src="/images/shose4.jpg">
-            <img class="index_ImageList" src="/images/shose5.jpg">
+            <th:block th:each="product : ${products}">
+                <img class="index_ImageList" th:src="@{${product.productImagePath}}" alt="제품 리스트">
+            </th:block>
+            <!-- <img class="product_reg_num" src="/images/shose5.jpg"> -->
         </div>
 </div>
 
