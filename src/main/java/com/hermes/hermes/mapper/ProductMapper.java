@@ -8,8 +8,6 @@ import java.util.List;
 
 @Mapper
 public interface ProductMapper {
-    // index 페이지 메인 이미지 하나 가져오기
-    Product getIndexProduct(@Param("product_reg_num") int product_reg_num);
 
     // 모든 상품 목록 조회
     List<Product> getAllIndexProducts();
