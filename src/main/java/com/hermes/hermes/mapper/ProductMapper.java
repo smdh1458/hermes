@@ -8,11 +8,11 @@ import java.util.List;
 
 @Mapper
 public interface ProductMapper {
-    // 상품 조회
-    Product getProduct(@Param("product_reg_num") int product_reg_num);
+    // index 페이지 메인 이미지 하나 가져오기
+    Product getIndexProduct(@Param("product_reg_num") int product_reg_num);
 
     // 모든 상품 목록 조회
-    List<Product> getAllProducts();
+    List<Product> getAllIndexProducts();
 
     // 카테고리에 쓸 정보 리스트로 가져오기
     List<Product> getCategoryList(String productCategory);

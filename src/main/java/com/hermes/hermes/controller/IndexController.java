@@ -19,26 +19,21 @@ public class IndexController {
 
 
     @GetMapping("/{product_reg_num}")
-    public String index(@PathVariable int product_reg_num, Model model) {
+    public String index(@PathVariable int product_reg_num, Model model) { //product_reg_num 통해 값 넣기
         // 1. product_reg_num 제품 번호에 해당하는 제품이름 ~ 이미지 등 가져와서 보여주기 = 1개의 상품만 들어있음
-        Product product = productService.getProduct(product_reg_num);
-        System.out.println(product);
-        model.addAttribute("product", product);
+        Product product = productService.getIndexProduct(product_reg_num); //productService 에 있는 getIndexProduct 에 product_reg_num 값을 넣어서 가져오기
+        model.addAttribute("product", product); // html로 보내기
 
         // 2. 제품 테이블에 있는 모든 제품 가지고 오기
-        List<Product>  products   =   productService.getAllProducts();
-        System.out.println("-- product table all --");
-        System.out.println(products);
-        model.addAttribute("products", products);
+        List<Product>  products   =   productService.getAllIndexProducts(); //productService 에 있는 getAllIndexProducts 가져오기
+        model.addAttribute("products", products); // html 로 보내기
         return "index";
     }
 
     @GetMapping("/category_page/{product_category}")
-    public String CategoryPage(@PathVariable String product_category, Model model) {
-        List<Product>  products   =   productService.getCategoryList(product_category);
-        System.out.println("-- product table all --");
-        System.out.println(products);
-        model.addAttribute("products", products);
+    public String CategoryPage(@PathVariable String product_category, Model model) { //product_category 값 넣기
+        List<Product>  products   =   productService.getCategoryList(product_category); //productService 에 있는 getCategoryList 가져오기
+        model.addAttribute("products", products); // html 로 보내기
         return "category_page";
     }
 
