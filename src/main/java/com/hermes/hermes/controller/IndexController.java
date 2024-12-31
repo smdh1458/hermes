@@ -35,7 +35,7 @@ public class IndexController {
 
     @GetMapping("/category_page/{product_category}")
     public String CategoryPage(@PathVariable String product_category, Model model) {
-        List<Product>  products   =   productService.getAllProducts();
+        List<Product>  products   =   productService.getCategoryList(product_category);
         System.out.println("-- product table all --");
         System.out.println(products);
         model.addAttribute("products", products);

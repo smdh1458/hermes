@@ -13,6 +13,6 @@ public class Product {
     private int product_price;
     private String product_description;
     private String product_image_path;
-    private String product_size;
     private String product_category;
+    private int product_size;
 }

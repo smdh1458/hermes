@@ -33,27 +33,9 @@ public class ProductServiceImpl implements ProductService {
         return productMapper.getAllProducts();
     }
 
-/*
-    @Override
-    public List<Product> getProductsByCategory(String category) {
-        // 카테고리별 상품 목록 조회
-        return productMapper.getProductsByCategory(category);
-    }*/
-
+    // product_category으로 값을 받아서 productMapper에 getCategoryList로 return하기
     @Override
     public List<Product> getCategoryList(String product_category){
         return productMapper.getCategoryList(product_category);
     }
-
-    /*
-    @Override
-    public String getProductImagePath(int productId) {
-        Product product = productMapper.getProduct(productId);
-        if (product != null) {
-            return product.getProduct_image_path();
-        }
-        return null;
-    }
-     */
-
 }

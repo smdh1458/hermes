@@ -14,10 +14,6 @@ public interface ProductMapper {
     // 모든 상품 목록 조회
     List<Product> getAllProducts();
 
-    // 카테고리별 상품 조회
-    List<Product> getProductsByCategory(String category);
-
-    //String getProductImagePath(int productId);
-
+    // 카테고리에 쓸 정보 리스트로 가져오기
     List<Product> getCategoryList(String productCategory);
 }

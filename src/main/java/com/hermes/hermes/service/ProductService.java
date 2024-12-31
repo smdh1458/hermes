@@ -15,7 +15,5 @@ public interface ProductService {
     List<Product> getAllProducts();
 
     // 카테고리별 상품 조회
-    //List<Product> getProductsByCategory(String category);
-
     List<Product> getCategoryList(String product_category);
 }

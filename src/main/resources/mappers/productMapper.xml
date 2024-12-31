@@ -11,12 +11,14 @@
         SELECT * FROM product
     </select>
 
+    <!-- product_reg_num 으로 product리스트 가져오기 -->
     <select id="getProductList">
         SELECT *
         FROM PRODUCT
         WHERE product_reg_num = #{product_reg_num}
     </select>
 
+    <!-- 카테고리로 product리스트 가져오기-->
     <select id="getCategoryList">
         SELECT *
         FROM PRODUCT

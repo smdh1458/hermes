@@ -18,14 +18,4 @@
         FROM USER
         WHERE NAME = #{name}
     </select>
-
-    <select id="getProductImage" resultType="byte[]">
-        SELECT product_image
-        FROM product
-        WHERE product_reg_num = #{product_reg_num}
-    </select>
-
-    <select id="getProduct" resultType="com.hermes.hermes.dto.Product">
-        SELECT * FROM product WHERE product_reg_num = #{product_reg_num}
-    </select>
 </mapper>

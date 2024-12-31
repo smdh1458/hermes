@@ -36,9 +36,8 @@
 <th:block th:replace="~{layout/header :: header}"></th:block>
 <div class="category_container">
   <div class="category_list" th:each="p : ${products}">
-    <img class="category_imagelist" th:src="${p.product_image_path}" alt="제품 리스트">
+    <a th:href="@{category_page/id=(${p.product_category})}"><img class="category_imagelist" th:src="${p.product_image_path}" alt="제품 리스트"></a>
     <span class="category_listname" th:text="${p.product_name}"></span>
-
   </div>
 </div>
 
