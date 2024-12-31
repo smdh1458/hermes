@@ -23,11 +23,6 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getIndexProduct(int product_reg_num) { // product_reg_num 에 해당하는 값 하나 가져오기
-        Product product = productMapper.getIndexProduct(product_reg_num);
-        return product;
-    }
-    @Override
     public List<Product> getAllIndexProducts() {
         // 모든 상품 목록 조회
         return productMapper.getAllIndexProducts();

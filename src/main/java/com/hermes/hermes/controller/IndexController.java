@@ -18,13 +18,9 @@ public class IndexController {
     private ProductService productService;
 
 
-    @GetMapping("/{product_reg_num}")
-    public String index(@PathVariable int product_reg_num, Model model) { //product_reg_num 통해 값 넣기
-        // 1. product_reg_num 제품 번호에 해당하는 제품이름 ~ 이미지 등 가져와서 보여주기 = 1개의 상품만 들어있음
-        Product product = productService.getIndexProduct(product_reg_num); //productService 에 있는 getIndexProduct 에 product_reg_num 값을 넣어서 가져오기
-        model.addAttribute("product", product); // html로 보내기
-
-        // 2. 제품 테이블에 있는 모든 제품 가지고 오기
+    @GetMapping("/")
+    public String index( Model model) {
+        // 제품 테이블에 있는 모든 제품 가지고 오기
         List<Product>  products   =   productService.getAllIndexProducts(); //productService 에 있는 getAllIndexProducts 가져오기
         model.addAttribute("products", products); // html 로 보내기
         return "index";

@@ -33,8 +33,8 @@
 
 <div class="index_container">
     <!-- 메인 이미지 -->
-    <div class="index_main"> <!-- 하나만 들고오기-->
-        <img class="index_mainImage" th:src="@{${product.product_image_path}}" alt="제품 이미지">
+    <div class="index_main" th:each="i, iterStat : ${products}"> <!-- 하나만 들고오기-->
+        <img class="index_mainImage" th:if="${iterStat.index == 1}" th:src="${i.product_image_path}" alt="제품 이미지">
     </div>
 
     <div class="index_List" th:each="p, iterStat : ${products}"> <!-- 이미지를 리스트로 불러와서 each 문으로 하나씩 출력 -->
