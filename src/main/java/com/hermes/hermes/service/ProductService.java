@@ -1,11 +1,7 @@
 package com.hermes.hermes.service;
 
 import com.hermes.hermes.dto.Product;
-
-
 import java.util.List;
-
-
 
 public interface ProductService {
     // 모든 상품 목록 조회

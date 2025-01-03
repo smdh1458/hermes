@@ -15,19 +15,28 @@ public class IndexController {
     private ProductService productService;
 
 
+    /**
+     * List<Product>  products   =   productService.getAllIndexProducts(); //productService 에 있는 getAllIndexProducts 가져오기
+     * @param model html에 보내기 위한 model
+     * @return index.html 페이지에 products로 불러온 모든 제품리스트를 전달
+     */
     @GetMapping("/")
     public String index( Model model) {
-        // 제품 테이블에 있는 모든 제품 가지고 오기
-        List<Product>  products   =   productService.getAllIndexProducts(); //productService 에 있는 getAllIndexProducts 가져오기
-        model.addAttribute("products", products); // html 로 보내기
+        List<Product>  products   =   productService.getAllIndexProducts();
+        model.addAttribute("products", products);
         return "index";
     }
 
+    /**
+     * @param product_category 카테고리에 해당하는 리스트만 가져오기 위해 카테고리 변수 문자열로 선언
+     * @param model html thymeleaf 에 보내기 위한 model
+     * List<Product>  products   =   productService.getCategoryList(product_category); //productService 에 있는 getCategoryList 가져오기
+     * @return category_page.html 페이지에 카테고리별 해당 상품 리스트를 전달
+     */
     @GetMapping("/category_page/{product_category}")
-    public String CategoryPage(@PathVariable String product_category, Model model) { //product_category 값 넣기
-        List<Product>  products   =   productService.getCategoryList(product_category); //productService 에 있는 getCategoryList 가져오기
-        model.addAttribute("products", products); // html 로 보내기
+    public String CategoryPage(@PathVariable String product_category, Model model) {
+        List<Product>  products   =   productService.getCategoryList(product_category);
+        model.addAttribute("products", products);
         return "category_page";
     }
-
 }

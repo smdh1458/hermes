@@ -9,6 +9,12 @@ import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
+    /*
+    @Autowired
+    private ProductMapper productMapper;
+
+    아래와 같이 작성한 기능 속성 및 생성자 명칭을 위  @Autowired로 스프링부트에서 객체를 관리할 수 있도록 사용할 수 있음
+
     // ProductMapper 주입
     private final ProductMapper productMapper;
 
@@ -16,10 +22,14 @@ public class ProductServiceImpl implements ProductService {
     public ProductServiceImpl(ProductMapper productMapper) {
         this.productMapper = productMapper;
     }
+    */
 
+    @Autowired
+    private ProductMapper productMapper;
+
+    // 모든 상품 목록 조회
     @Override
     public List<Product> getAllIndexProducts() {
-        // 모든 상품 목록 조회
         return productMapper.getAllIndexProducts();
     }
 
