@@ -50,7 +50,7 @@
     <!-- 3 ~ 9 번 이미지만 출력하기 위한 조건문 -->
     <!-- 이미지를 리스트로 불러와서 each 문으로 하나씩 출력 -->
     <div class="index_List" th:each="p, listnumStat : ${products}">
-        <a th:href="@{/product_details_page/id=(${p.product_reg_num})}"><img class="index_ImageList"
+        <a th:href="@{/product_details_page/{id}(id=${p.product_reg_num})}"><img class="index_ImageList"
              th:if="${listnumStat.index >= 3 && listnumStat.index < 9}"
              th:src="${p.product_image_path}"
              alt="제품 리스트"></a>

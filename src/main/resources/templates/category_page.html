@@ -34,11 +34,12 @@
     }
 
     /*텍스트 설정*/
-    .category_container .category_listname {
+    .category_container .category_listtagstyle {
       display: block;
       margin-top: 5px;
       font-size: 20px;
       margin-bottom: 5px;
+      font-weight: 600;
     }
 
     /*링크 스타일*/
@@ -59,8 +60,9 @@
 <div class="category_container">
   <!-- index와 마찬가지로 products 리스트로 불러와서 each문으로 하나씩 해당 값을 출력하기-->
   <div class="category_list" th:each="p : ${products}">
-    <a class="category_link" th:href="@{/product_details_page/id=(${p.product_reg_num})}"><img class="category_imagelist" th:src="${p.product_image_path}" alt="제품 리스트">
-    <span class="category_listname" th:text="${p.product_name}"></span></a>
+    <a class="category_link" th:href="@{/product_details_page/{id}(id=${p.product_reg_num})}"><img class="category_imagelist" th:src="${p.product_image_path}" alt="제품 리스트">
+    <span class="category_listtagstyle" th:text="${p.product_name}"></span>
+      <span class="category_listtagstyle" th:text="${p.product_price} + 원"></span></a>
   </div>
 </div>
 
