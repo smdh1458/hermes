@@ -26,6 +26,22 @@ public class IndexController {
         model.addAttribute("products", products);
         return "index";
     }
+    /*
+    @GetMapping("/")
+    public String index(HttpSession session, Model model) {  -->  Model model1 모델하나 더 추가하면 전체 리스트도 보낼 수 있음
+        Object user = session.getAttribute("loggedInUser");
+        model.addAttribute("loggedInUser", user);
+
+        List<Product> products = productService.getAllIndexProducts();
+        List<Product> recommendedProducts = products.stream()
+                .limit(6)
+                .toList();
+        model.addAttribute("products", recommendedProducts);
+        System.out.println(recommendedProducts);
+        model1.addAttribute("allProducts", products); --> 이건 전체 리스트 보낼때만 사용
+        return "index";
+    }
+    */
 
     /**
      * @param product_category 카테고리에 해당하는 리스트만 가져오기 위해 카테고리 변수 문자열로 선언
